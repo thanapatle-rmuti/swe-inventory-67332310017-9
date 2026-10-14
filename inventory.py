@@ -56,9 +56,8 @@ class Inventory:
 
     def low_stock_items(self, threshold: int) -> list[str]:
         """คืนรายชื่อสินค้าที่มีจำนวนคงเหลือน้อยกว่าหรือเท่ากับ threshold เรียงตามชื่อ"""
-        matched = []
-        for name, item in self._items.items():
-            if item.quantity <= threshold:
-                matched.append(name)
-        matched.sort()
-        return matched
+        return sorted(
+            name
+            for name, item in self._items.items()
+            if item.quantity <= threshold
+        )
