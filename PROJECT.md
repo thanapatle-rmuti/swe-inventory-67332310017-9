@@ -1,70 +1,50 @@
-# PROJECT.md: ระบบสต็อกสินค้า (Inventory Management System)
+# PROJECT.md: ระบบสต็อกสินค้า (Inventory & Pricing System)
 
-> **โครงงานรายวิชา Software Engineering**  
-> **รหัสนักศึกษา:** 67332310017-9  
-> **GitHub Repository:** [https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9](https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9) (Public)
-
----
-
-## 1. ข้อมูลโครงงานและผู้รับผิดชอบ
-
-| ข้อมูล | รายละเอียด |
-| :--- | :--- |
-| **ชื่อโครงงาน** | ระบบจัดการสต็อกสินค้า (Inventory Management System) |
-| **รหัสนักศึกษา** | 67332310017-9 |
-| **GitHub Username** | `thanapatle-rmuti` |
-| **สถานะ Repository** | Public |
-| **ขอบเขตการทำงาน** | รองรับสินค้าทั้ง Physical (สินค้าจับต้องได้) และ Digital (สินค้าดิจิทัล/ไฟล์) |
+> **โครงงานรายวิชา Software Engineering / Agile & CI/CD**  
+> **รหัสนักศึกษา:** 67332310017-9 (นายธนภัทร)  
+> **GitHub Repository:** [https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9](https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9) (Public)  
+> **CI Actions URL:** [https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9/actions](https://github.com/thanapatle-rmuti/swe-inventory-67332310017-9/actions)
 
 ---
 
-## 2. ภาพรวมระบบ (System Overview)
+## 1. จุดตรวจงาน 5 หัวข้อหลักสำหรับผู้สอน (Grading Navigation)
 
-ระบบบริหารจัดการสต็อกสินค้าสำหรับร้านค้าและคลังสินค้า โดยมุ่งเน้นการใช้งานที่ง่าย รวดเร็ว และแม่นยำ:
-1. **การจัดการสินค้า:** ตรวจสอบรายการสินค้า, บันทึกการรับเข้า (Receive/Restock) และจ่ายออก (Sell/Issue)
-2. **การแยกประเภทสินค้า:**
-   - **Physical Product:** สินค้าที่ต้องนับจำนวนสต็อกจริงในคลัง (เช่น ปากกา, สมุด, สายไฟ)
-   - **Digital Product:** สินค้าในรูปแบบไฟล์หรือใบอนุญาตดิจิทัล (เช่น E-Book, Software License Key)
-3. **ระบบคิดส่วนลดและคำนวณยอด (Discount Module):** จัดการโปรโมชัน, คำนวณราคาสินค้ารวมพร้อมส่วนลด, หาค่าเฉลี่ย และหาสินค้าราคาถูกที่สุด
-4. **การควบคุมคุณภาพโค้ด:** พัฒนาควบคู่กับ Automated Test (`pytest`) และการ Review ตามหลักวิศวกรรมซอฟต์แวร์
-
----
-
-## 3. โครงสร้างไฟล์ใน Repository
-
-```text
-├── README.md                      # ภาพรวมของ Repository
-├── PROJECT.md                     # ข้อมูลโครงงานฉบับสมบูรณ์ (ไฟล์นี้)
-├── TEAM_CHARTER.md                # ข้อกำหนดการทำงาน กฎของทีม และนโยบาย AI
-├── inventory.py                   # โมดูล Inventory ฐานอ้างอิง
-└── lab04-ai-coding-ux/            # งาน Lab 4
-    ├── findings-lab04.md          # ผลการสัมภาษณ์ผู้ใช้และ Point of View
-    ├── persona.md                 # Persona และ User Journey Map
-    ├── assets/
-    │   ├── wireframe-ai.md        # Text Wireframe (3 หน้าจอ)
-    │   └── mockup-link.txt        # ลิงก์ไปยัง UI Mockup
-    ├── accessibility-review.md    # ตรวจสอบ Accessibility ตาม WCAG 2.1 AA
-    ├── prompt-vs-context.md       # เปรียบเทียบ Prompt Engineering vs Context Engineering
-    ├── code-review.md             # ผลการ Review โค้ด inventory_service.py
-    ├── debug-log.md               # บันทึกการ Debug โค้ด discount.py
-    ├── inventory.py               # โค้ด Inventory ฐานอ้างอิง
-    ├── inventory_service.py       # โค้ด Service ที่ผ่านการ Review
-    ├── discount.py                # โค้ดโมดูลส่วนลดที่ผ่านการ Debug ครบทุกข้อ
-    └── tests/
-        └── test_discount.py       # Unit Test ครบชุดผ่าน 100%
-```
+| # | หัวข้อประเมิน | เอกสารและลิงก์ไปยังไฟล์ใน Repository |
+| :-: | :--- | :--- |
+| **1** | **Spec ของระบบ** | • [specs/spec.md](specs/spec.md) — Functional Specification และ Acceptance Criteria (Given-When-Then) |
+| **2** | **Class Diagram & Sequence Diagram** | • [diagrams/class.md](diagrams/class.md) — แผนภาพ Class Diagram (Factory & Observer Pattern)<br>• [diagrams/sequence.md](diagrams/sequence.md) — แผนภาพ Sequence Diagram การรับ/จ่าย/แจ้งเตือน |
+| **3** | **งานฝั่งผู้ใช้ (UX/UI)** | • [lab04-ai-coding-ux/persona.md](lab04-ai-coding-ux/persona.md) — Persona "สมศรี" และ User Journey Map<br>• [lab04-ai-coding-ux/assets/wireframe-ai.md](lab04-ai-coding-ux/assets/wireframe-ai.md) — Text Wireframe 3 หน้าจอ<br>• [lab04-ai-coding-ux/accessibility-review.md](lab04-ai-coding-ux/accessibility-review.md) — แบบตรวจ Accessibility (WCAG 2.1 AA) |
+| **4** | **Test อัตโนมัติ และผลการรัน CI** | • [tests/test_inventory.py](tests/test_inventory.py) — Unit Test ของ Inventory และ TDD ของ `low_stock_items`<br>• [tests/test_pricing.py](tests/test_pricing.py) — Characterization Test ของโมดูลคิดราคา<br>• [.github/workflows/ci.yml](.github/workflows/ci.yml) — GitHub Actions CI Workflow (Ruff + Pytest + Coverage >= 85%)<br>• [screenshots/ci-green.png](screenshots/ci-green.png) — ภาพ Check ผ่าน (สีเขียว)<br>• [screenshots/ci-red.png](screenshots/ci-red.png) — ภาพ Check ไม่ผ่าน (สีแดง) |
+| **5** | **บันทึกการใช้ AI และจริยธรรม** | • [test-gap.md](test-gap.md) — ตาราง 3 คอลัมน์วิเคราะห์ Test Gap ที่ AI ขาดไป<br>• [coverage-note.md](coverage-note.md) — รายงานวิเคราะห์ Code Coverage 3 คำถาม<br>• [smells.md](smells.md) — รายการ Code Smells 7 ข้อในโค้ดเดิม<br>• [ethics.md](ethics.md) — รายงานจริยธรรมยุค AI 4 ประเด็น + Personal Policy 190 คำ<br>• [AI_ITERATION_LOG.md](AI_ITERATION_LOG.md) — บันทึก Context Engineering & SDD Iterations |
 
 ---
 
-## 4. การติดตั้งและรันการทดสอบ (Getting Started)
+## 2. ภาพรวมระบบและการปรับปรุง (Lab 5 Summary)
 
-### ติดตั้งเครื่องมือทดสอบ
+### 2.1 TDD Safety Net (`low_stock_items`)
+- เขียน Test สีแดงล่วงหน้า 6 กรณีครอบคลุมทุก Boundary Condition (สินค้าหมด, เท่ากับ threshold พอดี, เรียงชื่อ ก-ฮ, ค่าลบ, คลังว่าง)
+- พัฒนาโค้ดให้ผ่าน (Green) และ Refactor โค้ดให้อ่านง่าย กระชับ ด้วย Sorted List Comprehension
+
+### 2.2 Refactoring Legacy Code (`pricing_legacy.py` -> `pricing.py`)
+- บันทึกพฤติกรรมเดิมด้วย Characterization Tests 11 ข้อ ใน `tests/test_pricing_legacy.py`
+- แยกความรับผิดชอบย่อยตามหลัก SRP (คำนวณราคาสินค้า, ลดซื้อเหมา, จัดการคะแนนสมาชิก, คูปองโปรโมชัน, ภาษีมูลค่าเพิ่ม)
+- ปราศจาก Magic Numbers และขจัด Global Mutable State
+
+### 2.3 Automated CI/CD Workflow
+- ควบคุมคุณภาพโค้ดด้วย `ruff` linter และ `pytest` พร้อมตั้งเกณฑ์ Code Coverage ขั้นต่ำ 85% (`--cov-fail-under=85`)
+- ผลการวัด Coverage ปัจจุบันอยู่ที่ **99%**
+
+---
+
+## 3. คำสั่งสำหรับการติดตั้งและทดสอบ (Commands)
+
 ```bash
-pip install pytest
-```
+# ติดตั้ง dependencies
+pip install -r requirements.txt
 
-### การรัน Unit Test สำหรับ Lab 4
-```bash
-cd lab04-ai-coding-ux
-python -m pytest tests/ -v
+# ตรวจสอบรูปแบบโค้ดด้วย ruff
+ruff check .
+
+# รัน Automated Test พร้อมวัด Coverage
+pytest tests/ --cov=. --cov-report=term-missing --cov-fail-under=85
 ```
